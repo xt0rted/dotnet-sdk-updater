@@ -19,6 +19,23 @@ inputs:
     required: false
     default: "./"
 
+outputs:
+  dry-run:
+    description: "Same value as the dry-run input."
+    example: "false"
+
+  updated:
+    description: "If the file was updated with a new version."
+    example: "true"
+
+  updated-version-from:
+    description: "The starting version in the global.json."
+    example: "6.0.101"
+
+  updated-version-to:
+    description: "The new version in the global.json."
+    example: "6.0.102"
+
 runs:
   using: "node16"
   main: "dist/index.js"
