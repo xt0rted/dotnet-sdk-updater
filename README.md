@@ -1,5 +1,7 @@
 # dotnet-sdk-updater
 
+[![CI](https://github.com/xt0rted/dotnet-sdk-updater/actions/workflows/ci.yml/badge.svg)](https://github.com/xt0rted/dotnet-sdk-updater/actions/workflows/ci.yml)
+
 Update `global.json` files with the latest SDK version.
 
 ## Usage
