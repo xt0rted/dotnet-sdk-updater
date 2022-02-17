@@ -7,12 +7,14 @@
   "type": "module",
   "scripts": {
     "build": "tsc --project ./tsconfig.build.json",
+    "clean": "rimraf coverage && rimraf dist && rimraf lib",
     "eslint": "eslint . --ext .js,.cjs,.ts",
     "eslint:fix": "npm run eslint -- --fix",
     "lint": "tsc --noEmit && npm run eslint",
     "local": "ncc run src/main.ts",
     "package": "ncc build src/main.ts",
     "readme": "actions-toolkit update-readme --include-example",
+    "prerelease": "npm run clean && npm run lint && npm test && npm run build",
     "release": "npm run package && git add -f dist/",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage --config=jest.config.cjs"
   },
@@ -56,6 +58,7 @@
     "jest": "^27.5.1",
     "jest-circus": "^27.5.1",
     "nock": "^13.2.4",
+    "rimraf": "^3.0.2",
     "ts-jest": "^27.1.3",
     "ts-node": "^10.5.0",
     "tslib": "^2.3.1",
