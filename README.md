@@ -1,6 +1,7 @@
 # dotnet-sdk-updater
 
-[![CI](https://github.com/xt0rted/dotnet-sdk-updater/actions/workflows/ci.yml/badge.svg)](https://github.com/xt0rted/dotnet-sdk-updater/actions/workflows/ci.yml)
+[![CI](https://github.com/xt0rted/dotnet-sdk-updater/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xt0rted/dotnet-sdk-updater/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/xt0rted/dotnet-sdk-updater/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/xt0rted/dotnet-sdk-updater/actions/workflows/codeql-analysis.yml)
 
 Update `global.json` files with the latest SDK version.
 
