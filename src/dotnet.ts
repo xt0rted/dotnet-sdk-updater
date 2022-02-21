@@ -5,8 +5,8 @@ const RELEASES_INDEX_ENDPOINT = "https://dotnetcli.blob.core.windows.net/dotnet/
 interface ReleaseBase {
   "channel-version": string;
   "eol-date": string;
-  "latest-release-date": string;
   "latest-release": string;
+  "latest-release-date": string;
   "latest-runtime": string;
   "latest-sdk": string;
   "support-phase": string;
@@ -40,32 +40,32 @@ export async function findLatestSdkVersion(versionChannel: string): Promise<Rele
 interface DotNetChannel extends ReleaseBase {
   "lifecycle-policy": string;
   releases: Array<{
-    "release-date": string;
-    "release-version": string;
-    security: boolean;
     "cve-list": Array<{
       "cve-id": string;
       "cve-url": string;
     }>;
+    "release-date": string;
     "release-notes": string;
+    "release-version": string;
     sdk: {
-      version: string;
       "runtime-version": string;
+      version: string;
     };
+    security: boolean;
   }>;
 }
 
 export interface ReleaseDetails {
   channel: string;
+  cveList?: Array<{
+    id: string;
+    url: string;
+  }>;
   latestRelease: string;
   latestReleaseDate: string;
   latestSdk: string;
   releaseNotes: string;
   securityRelease: boolean;
-  cveList?: Array<{
-    id: string;
-    url: string;
-  }>;
 }
 
 async function releaseDetails(releaseUrl: string): Promise<ReleaseDetails> {
@@ -79,9 +79,9 @@ async function releaseDetails(releaseUrl: string): Promise<ReleaseDetails> {
   } = await response.json() as DotNetChannel;
 
   const {
+    "cve-list": cveList,
     "release-notes": releaseNotes,
     security: securityRelease,
-    "cve-list": cveList,
   } = releases[0];
 
   const details: ReleaseDetails = {
