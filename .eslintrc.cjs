@@ -211,6 +211,8 @@ module.exports = {
       },
       plugins: [
         "@typescript-eslint",
+        "typescript-sort-keys",
+        "sort-destructure-keys",
       ],
       rules: {
         "no-use-before-define": "off",
@@ -229,6 +231,13 @@ module.exports = {
           typedefs: true,
           variables: true,
         }],
+        "typescript-sort-keys/interface": ["error", "asc", {
+          caseSensitive: true,
+          natural: true,
+          requiredFirst: false,
+        }],
+        "typescript-sort-keys/string-enum": ["error", "asc", { caseSensitive: true }],
+        "sort-destructure-keys/sort-destructure-keys": ["error", { caseSensitive: true }],
       },
     },
     {
