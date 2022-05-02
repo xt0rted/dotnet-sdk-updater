@@ -35,7 +35,7 @@
   "author": "xt0rted",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.6.0",
+    "@actions/core": "^1.7.0",
     "json5": "^2.2.1",
     "node-fetch": "^3.2.3",
     "semver": "^7.3.7",
