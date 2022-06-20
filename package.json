@@ -39,7 +39,7 @@
     "json5": "^2.2.1",
     "node-fetch": "^3.2.4",
     "semver": "^7.3.7",
-    "xregexp": "^5.1.0"
+    "xregexp": "^5.1.1"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.3",
