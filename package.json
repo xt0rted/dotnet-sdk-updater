@@ -58,7 +58,7 @@
     "eslint-plugin-unicorn": "^42.0.0",
     "jest": "^28.1.1",
     "jest-circus": "^28.1.1",
-    "nock": "^13.2.7",
+    "nock": "^13.2.8",
     "rimraf": "^3.0.2",
     "ts-jest": "^28.0.5",
     "ts-node": "^10.8.1",
