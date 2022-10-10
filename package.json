@@ -52,7 +52,7 @@
     "@xt0rted/actions-toolkit": "^0.0.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.5.3",
     "eslint-plugin-unicorn": "^44.0.2",
