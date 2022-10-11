@@ -38,7 +38,7 @@
     "@actions/core": "^1.9.1",
     "json5": "^2.2.1",
     "node-fetch": "^3.2.10",
-    "semver": "^7.3.7",
+    "semver": "^7.3.8",
     "xregexp": "^5.1.1"
   },
   "devDependencies": {
