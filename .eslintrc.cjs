@@ -242,6 +242,7 @@ module.exports = {
         "plugin:jest/all",
       ],
       rules: {
+        "jest/max-expects": "off",
         "jest/no-hooks": "off",
         "jest/no-standalone-expect": [
           "error",
