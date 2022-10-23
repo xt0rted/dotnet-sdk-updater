@@ -1,6 +1,6 @@
 require("nock").disableNetConnect();
 
-/** @type {import("ts-jest/dist/types").InitialOptionsTsJest} */
+/** @type {import("ts-jest").JestConfigWithTsJest} */
 module.exports = {
   clearMocks: true,
   moduleNameMapper: { "^(\\.{1,2}/.*)\\.js$": "$1" },
@@ -9,7 +9,15 @@ module.exports = {
   testEnvironment: "node",
   testMatch: ["**/*.test.ts"],
   testRunner: "jest-circus/runner",
-  transform: { "^.+\\.ts$": ["ts-jest", { useESM: true }] },
+  transform: {
+    "^.+\\.ts$": [
+      "ts-jest",
+      {
+        diagnostics: true,
+        useESM: true,
+      },
+    ],
+  },
   verbose: true,
 };
 
