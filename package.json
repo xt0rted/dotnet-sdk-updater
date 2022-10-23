@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc --project ./tsconfig.build.json",
-    "clean": "rimraf coverage && rimraf dist && rimraf lib",
+    "clean": "rimraf coverage dist lib",
     "eslint": "eslint . --ext .js,.cjs,.ts",
     "eslint:fix": "npm run eslint -- --fix",
     "lint": "tsc --noEmit && npm run eslint",
