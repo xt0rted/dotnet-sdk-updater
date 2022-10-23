@@ -4,7 +4,7 @@ import { jest } from "@jest/globals";
 
 jest.unstable_mockModule("node:fs/promises", () => ({
   __esModule: true,
-  ...(jest.requireActual("node:fs/promises") as object),
+  ...jest.requireActual<object>("node:fs/promises"),
   writeFile: jest.fn(),
 }));
 

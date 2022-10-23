@@ -7,13 +7,13 @@ import {
 
 jest.unstable_mockModule("node:fs/promises", () => ({
   __esModule: true,
-  ...(jest.requireActual("node:fs/promises") as object),
+  ...jest.requireActual<object>("node:fs/promises"),
   writeFile: mockWithLogging("writeFile"),
 }));
 
 jest.unstable_mockModule("@actions/core", () => ({
   __esModule: true,
-  ...(jest.requireActual("@actions/core") as object),
+  ...jest.requireActual<object>("@actions/core"),
   debug: mockWithLogging("debug"),
   setFailed: mockWithLogging("setFailed"),
   setOutput: mockWithLogging("setOutput"),
