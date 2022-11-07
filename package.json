@@ -47,7 +47,7 @@
     "@types/node": "^18.11.8",
     "@types/semver": "^7.3.13",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
-    "@typescript-eslint/parser": "^5.41.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "@vercel/ncc": "^0.34.0",
     "@xt0rted/actions-toolkit": "^0.0.1",
     "cross-env": "^7.0.3",
