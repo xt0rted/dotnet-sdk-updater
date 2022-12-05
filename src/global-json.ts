@@ -46,9 +46,9 @@ export async function updateSdkVersion(configFile: string, versionFrom: string, 
   debug(`Original file contents: ${fileContents}`);
   debug(`New file contents: ${newFileContents}`);
 
-  if (!dryRun) {
-    await writeFile(configFile, newFileContents, { encoding: "utf8" });
-  } else {
+  if (dryRun) {
     warning("Skipping write due to dry-run set to true");
+  } else {
+    await writeFile(configFile, newFileContents, { encoding: "utf8" });
   }
 }
