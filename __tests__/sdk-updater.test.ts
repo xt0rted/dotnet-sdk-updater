@@ -44,7 +44,7 @@ describe("sdk-updater", () => {
     expect(setFailed).toHaveBeenCalledWith("Input required and not supplied: dry-run");
   });
 
-  it("sets outputs when version is updated", async () => {
+  it("sets outputs when version is not updated", async () => {
     process.env["INPUT_DRY-RUN"] = "false";
     process.env["INPUT_FILE-LOCATION"] = "./__tests__/configs/up-to-date";
 
@@ -60,7 +60,7 @@ describe("sdk-updater", () => {
     expect(setOutput).toHaveBeenCalledWith("updated", false);
   });
 
-  it("sets outputs when version is not updated", async () => {
+  it("sets outputs when version is updated", async () => {
     process.env["INPUT_DRY-RUN"] = "false";
     process.env["INPUT_FILE-LOCATION"] = "./__tests__/configs";
 
@@ -76,5 +76,6 @@ describe("sdk-updater", () => {
     expect(setOutput).toHaveBeenCalledWith("updated", true);
     expect(setOutput).toHaveBeenCalledWith("updated-version-from", "6.0.1");
     expect(setOutput).toHaveBeenCalledWith("updated-version-to", "6.0.102");
+    expect(setOutput).toHaveBeenCalledWith("update-type", "patch");
   });
 });
