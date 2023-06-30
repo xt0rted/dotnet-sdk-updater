@@ -4,6 +4,7 @@
 
 - Bumped `json5` from 2.2.1 to 2.2.3
 - Bumped `node-fetch` from 3.2.10 to 3.3.1
+- Bumped `semver` from 7.3.8 to 7.5.3
 
 ## [1.1.0](https://github.com/xt0rted/dotnet-sdk-updater/compare/v1.0.0...v1.1.0) - 2022-10-23
 
