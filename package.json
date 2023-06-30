@@ -12,7 +12,7 @@
     "eslint:fix": "npm run eslint -- --fix",
     "lint": "tsc --noEmit && npm run eslint",
     "local": "ncc run src/main.ts",
-    "package": "ncc build ./src/main.ts --source-map",
+    "package": "ncc build ./src/main.ts --source-map --license license.txt",
     "readme": "actions-toolkit update-readme --include-example",
     "prerelease": "npm run clean && npm run lint && npm test && npm run build",
     "release": "npm run package && git add -f dist/",
