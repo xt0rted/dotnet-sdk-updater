@@ -5,10 +5,37 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 99
+    groups:
+      github-actions:
+        patterns:
+          - "actions/*"
+      my-actions:
+        patterns:
+          - "xt0rted/*"
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 99
+    groups:
+      eslint:
+        patterns:
+          - "@types/eslint"
+          - "@typescript-eslint/*"
+          - "eslint"
+          - "eslint-*"
+      jest:
+        patterns:
+          - "@types/jest"
+          - "jest"
+          - "jest-*"
+          - "ts-jest"
+      semver:
+        patterns:
+          - "@types/semver"
+          - "semver"
+      typescript:
+        patterns:
+          - "ts-node"
+          - "tslib"
+          - "typescript"
