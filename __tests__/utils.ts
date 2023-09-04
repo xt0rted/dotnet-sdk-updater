@@ -1,9 +1,8 @@
 import { fileURLToPath } from "node:url";
 
-import { jest } from "@jest/globals";
 import nock from "nock";
 
-const enableLogging = false;
+nock.disableNetConnect();
 
 export function mockHttpRequests() {
   nock("https://dotnetcli.blob.core.windows.net")
@@ -32,13 +31,4 @@ export function mockHttpRequests() {
       fileURLToPath(new URL("payloads/dotnet-6.0-releases.json", import.meta.url)),
       { "Content-Type": "application/json" },
     );
-}
-
-export function mockWithLogging(name: string) {
-  return jest.fn((...arguments_: unknown[]): void => {
-    if (enableLogging) {
-      // eslint-disable-next-line no-console
-      console.info(name, ...arguments_);
-    }
-  });
 }

@@ -1,13 +1,20 @@
+import assert from "node:assert/strict";
+import {
+  before,
+  describe,
+  it,
+} from "node:test";
+
 import { findLatestSdkVersion } from "../src/dotnet";
 import { mockHttpRequests } from "./utils";
 
 describe("dotnet", () => {
-  beforeAll(() => {
+  before(() => {
     mockHttpRequests();
   });
 
   it("finds the latest version for 2.2", async () => {
-    await expect(findLatestSdkVersion("2.2")).resolves.toStrictEqual({
+    assert.deepEqual(await findLatestSdkVersion("2.2"), {
       channel: "2.2",
       latestRelease: "2.2.8",
       latestReleaseDate: "2019-11-19",
@@ -18,7 +25,7 @@ describe("dotnet", () => {
   });
 
   it("finds the latest version for 6.0", async () => {
-    await expect(findLatestSdkVersion("6.0")).resolves.toStrictEqual({
+    assert.deepEqual(await findLatestSdkVersion("6.0"), {
       channel: "6.0",
       cveList: [
         {
@@ -35,6 +42,9 @@ describe("dotnet", () => {
   });
 
   it("doesn't find a version for 1.3", async () => {
-    await expect(findLatestSdkVersion("1.3")).rejects.toThrow("Version channel '1.3' not found in releases-index.json");
+    await assert.rejects(
+      async () => await findLatestSdkVersion("1.3"),
+      { message: "Version channel '1.3' not found in releases-index.json" },
+    );
   });
 });

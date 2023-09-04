@@ -1,12 +1,18 @@
+import assert from "node:assert/strict";
+import {
+  beforeEach,
+  describe,
+  it,
+} from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { jest } from "@jest/globals";
+import esmock from "esmock";
 
-jest.unstable_mockModule("node:fs/promises", () => ({
-  __esModule: true,
-  ...jest.requireActual<object>("node:fs/promises"),
-  writeFile: jest.fn(),
-}));
+import type { updateSdkVersion as updateSdkVersionType } from "../src/global-json";
+
+interface GlobalJson {
+  updateSdkVersion: typeof updateSdkVersionType;
+}
 
 describe("global-json", () => {
   let configFile: string;
@@ -19,7 +25,7 @@ describe("global-json", () => {
     it("returns the correct path", async () => {
       const { mapConfigFile } = await import("../src/global-json");
 
-      expect(mapConfigFile("./__tests__/configs")).toBe(configFile);
+      assert.equal(mapConfigFile("./__tests__/configs"), configFile);
     });
   });
 
@@ -27,12 +33,12 @@ describe("global-json", () => {
     it("returns the correct version", async () => {
       const { loadSdkVersion } = await import("../src/global-json");
 
-      await expect(loadSdkVersion(configFile)).resolves.toBe("6.0.1");
+      assert.equal(await loadSdkVersion(configFile), "6.0.1");
     });
   });
 
   describe("updateSdkVersion", () => {
-    it("updates the version when not a dry run", async () => {
+    it("updates the version when not a dry run", async (ctx) => {
       const expectedFileResult = `{
   "tools": {
     "dotnet": "6.0.101",
@@ -54,25 +60,36 @@ describe("global-json", () => {
 }
 `;
 
-      const { writeFile } = await import("node:fs/promises");
-      const { updateSdkVersion } = await import("../src/global-json");
+      const writeFileMock = ctx.mock.fn();
+      const globalJson = await esmock(
+        "../src/global-json",
+        import.meta.url,
+        {},
+        { "node:fs/promises": { writeFile: writeFileMock } },
+      ) as GlobalJson;
 
-      await updateSdkVersion(configFile, "6.0.1", "6.0.102", false);
+      await globalJson.updateSdkVersion(configFile, "6.0.1", "6.0.102", false);
 
-      expect(writeFile).toHaveBeenCalledWith(
+      assert.equal(writeFileMock.mock.callCount(), 1);
+      assert.deepEqual(writeFileMock.mock.calls[0].arguments, [
         configFile,
         expectedFileResult,
-        expect.objectContaining({ encoding: "utf8" }),
-      );
+        { encoding: "utf8" },
+      ]);
     });
 
-    it("doesn't update the version when a dry run", async () => {
-      const { writeFile } = await import("node:fs/promises");
-      const { updateSdkVersion } = await import("../src/global-json");
+    it("doesn't update the version when a dry run", async (ctx) => {
+      const writeFileMock = ctx.mock.fn();
+      const globalJson = await esmock(
+        "../src/global-json",
+        import.meta.url,
+        {},
+        { "node:fs/promises": { writeFile: writeFileMock } },
+      ) as GlobalJson;
 
-      await updateSdkVersion(configFile, "6.0.1", "6.0.102", true);
+      await globalJson.updateSdkVersion(configFile, "6.0.1", "6.0.102", true);
 
-      expect(writeFile).not.toHaveBeenCalled();
+      assert.equal(writeFileMock.mock.callCount(), 0);
     });
   });
 });

@@ -58,6 +58,7 @@ module.exports = {
       },
     ],
     "lines-around-comment": ["error", {
+      allowBlockStart: true,
       beforeBlockComment: true,
       beforeLineComment: true,
     }],
@@ -79,7 +80,7 @@ module.exports = {
     "no-implied-eval": "error",
     "no-multi-spaces": "error",
     "no-multiple-empty-lines": ["error", { max: 1 }],
-    "no-plusplus": "error",
+    "no-plusplus": ["error", {allowForLoopAfterthoughts: true}],
     "no-return-assign": "error",
     "no-self-compare": "error",
     "no-template-curly-in-string": "error",
@@ -187,12 +188,12 @@ module.exports = {
     ],
     "import/newline-after-import": "error",
     "import/order": ["error", { alphabetize: { order: "asc" } }],
+    "unicorn/prevent-abbreviations": "off",
   },
   overrides: [
     {
       files: [
         ".eslintrc.cjs",
-        "jest.config.cjs",
       ],
       rules: { "unicorn/prefer-module": "off" },
     },
@@ -244,20 +245,9 @@ module.exports = {
       files: [
         "*.test.ts",
       ],
-      plugins: [
-        "jest",
-      ],
-      extends: [
-        "plugin:jest/all",
-      ],
       rules: {
-        "jest/max-expects": "off",
-        "jest/no-hooks": "off",
-        "jest/no-standalone-expect": [
-          "error",
-          { additionalTestBlockFunctions: ["afterEach"] },
-        ],
-        "jest/prefer-expect-assertions": "off",
+        "no-console": "off",
+        "@typescript-eslint/no-floating-promises": "off",
       },
     },
   ],

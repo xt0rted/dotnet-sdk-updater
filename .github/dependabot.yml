@@ -24,12 +24,6 @@ updates:
           - "@typescript-eslint/*"
           - "eslint"
           - "eslint-*"
-      jest:
-        patterns:
-          - "@types/jest"
-          - "jest"
-          - "jest-*"
-          - "ts-jest"
       semver:
         patterns:
           - "@types/semver"

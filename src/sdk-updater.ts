@@ -1,6 +1,5 @@
 import {
   debug,
-  error,
   getBooleanInput,
   getInput,
   setFailed,
@@ -55,7 +54,6 @@ export async function run(): Promise<void> {
     setOutput("dry-run", dryRun);
     setOutput("updated", updateRequired);
   } catch (error_) {
-    error(error_ as Error);
     setFailed((error_ as Error).message);
   }
 }
