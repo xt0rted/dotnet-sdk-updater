@@ -51,7 +51,7 @@
     "@vercel/ncc": "^0.38.1",
     "@xt0rted/actions-toolkit": "^0.0.1",
     "cross-env": "^7.0.3",
-    "dotenv": "^16.4.2",
+    "dotenv": "^16.4.4",
     "eslint": "^8.56.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^27.6.3",
