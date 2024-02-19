@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Bumped `semver` from 7.5.3 to 7.6.0
+
 ## [1.2.0](https://github.com/xt0rted/dotnet-sdk-updater/compare/v1.1.0...v1.2.0) - 2023-06-30
 
 - Bumped `json5` from 2.2.1 to 2.2.3
