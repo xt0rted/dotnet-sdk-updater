@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const RELEASES_INDEX_ENDPOINT = "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json";
 
 interface ReleaseBase {
