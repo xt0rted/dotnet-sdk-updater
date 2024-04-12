@@ -44,7 +44,10 @@ module.exports = {
     "function-call-argument-newline": ["error", "consistent"],
     "function-paren-newline": ["error", "consistent"],
     "implicit-arrow-linebreak": ["error", "beside"],
-    indent: ["error", 2],
+    indent: ["error",
+      2,
+      { SwitchCase: 1 },
+    ],
     "key-spacing": ["error", {
       beforeColon: false,
       afterColon: true,
@@ -215,6 +218,7 @@ module.exports = {
         "sort-destructure-keys",
       ],
       rules: {
+        "no-unused-vars": "off",
         "no-use-before-define": "off",
         "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
         "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
@@ -223,6 +227,7 @@ module.exports = {
           prefer: "type-imports",
           disallowTypeAnnotations: true,
         }],
+        "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
         "@typescript-eslint/no-use-before-define": ["error", {
           classes: false,
           enums: true,

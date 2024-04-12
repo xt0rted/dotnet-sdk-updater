@@ -1,7 +1,5 @@
-require("nock").disableNetConnect();
-
 /** @type {import("ts-jest").JestConfigWithTsJest} */
-module.exports = {
+export default {
   clearMocks: true,
   moduleNameMapper: { "^(\\.{1,2}/.*)\\.js$": "$1" },
   preset: "ts-jest/presets/default-esm",
@@ -19,12 +17,4 @@ module.exports = {
     ],
   },
   verbose: true,
-};
-
-const processStdoutWrite = process.stdout.write.bind(process.stdout);
-
-process.stdout.write = (string_, encoding, callback) => {
-  if (!String(string_).startsWith("::")) {
-    return processStdoutWrite(string_, encoding, callback);
-  }
 };
