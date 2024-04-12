@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Targeted `node20`
+- Bumped `@actions/core` from 1.10.0 to 1.10.1
 - Bumped `semver` from 7.5.3 to 7.6.0
 
 ## [1.2.0](https://github.com/xt0rted/dotnet-sdk-updater/compare/v1.1.0...v1.2.0) - 2023-06-30

@@ -3,6 +3,7 @@ import { jest } from "@jest/globals";
 import {
   mockHttpRequests,
   mockWithLogging,
+  resetMocks,
 } from "./utils";
 
 jest.unstable_mockModule("node:fs/promises", () => ({
@@ -22,15 +23,13 @@ jest.unstable_mockModule("@actions/core", () => ({
 describe("sdk-updater", () => {
   const originalEnvironment = process.env;
 
-  beforeAll(() => {
-    mockHttpRequests();
-  });
-
   beforeEach(() => {
+    mockHttpRequests();
     process.env = { ...originalEnvironment };
   });
 
   afterEach(() => {
+    resetMocks();
     process.env = originalEnvironment;
   });
 

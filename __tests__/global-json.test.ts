@@ -2,10 +2,18 @@ import { fileURLToPath } from "node:url";
 
 import { jest } from "@jest/globals";
 
+import { mockWithLogging } from "./utils";
+
 jest.unstable_mockModule("node:fs/promises", () => ({
   __esModule: true,
   ...jest.requireActual<object>("node:fs/promises"),
   writeFile: jest.fn(),
+}));
+
+jest.unstable_mockModule("@actions/core", () => ({
+  __esModule: true,
+  ...jest.requireActual<object>("@actions/core"),
+  debug: mockWithLogging("debug"),
 }));
 
 describe("global-json", () => {

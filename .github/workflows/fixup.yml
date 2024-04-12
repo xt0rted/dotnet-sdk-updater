@@ -7,7 +7,7 @@ on:
 
 env:
   FORCE_COLOR: 3
-  NODE_VERSION: 18
+  NODE_VERSION: 20
 
 jobs:
   fixup-eslint:

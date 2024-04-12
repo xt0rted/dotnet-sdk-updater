@@ -1,9 +1,16 @@
 import { findLatestSdkVersion } from "../src/dotnet";
-import { mockHttpRequests } from "./utils";
+import {
+  mockHttpRequests,
+  resetMocks,
+} from "./utils";
 
 describe("dotnet", () => {
-  beforeAll(() => {
+  beforeEach(() => {
     mockHttpRequests();
+  });
+
+  afterEach(() => {
+    resetMocks();
   });
 
   it("finds the latest version for 2.2", async () => {
