@@ -40,7 +40,7 @@ jobs:
           private_key: ${{ secrets.LINTING_FIXUP_PRIVATE_KEY }}
 
       - name: Check out repo
-        uses: actions/checkout@v4.1.3
+        uses: actions/checkout@v4.1.4
         if: steps.command.outputs.command-name && steps.command.outputs.command-arguments == 'eslint'
         with:
           ref: ${{ steps.comment-branch.outputs.head_ref }}
