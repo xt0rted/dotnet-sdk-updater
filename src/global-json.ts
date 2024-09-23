@@ -2,10 +2,7 @@ import {
   readFile,
   writeFile,
 } from "node:fs/promises";
-import {
-  join,
-  resolve,
-} from "node:path";
+import path from "node:path";
 
 import {
   debug,
@@ -23,7 +20,7 @@ interface GlobalJson {
 }
 
 export function mapConfigFile(appRoot: string) {
-  const fullLocation = resolve(join(appRoot, "global.json"));
+  const fullLocation = path.resolve(path.join(appRoot, "global.json"));
 
   debug(`Using global.json at: ${fullLocation}`);
 
