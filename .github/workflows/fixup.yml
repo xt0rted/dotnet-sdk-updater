@@ -47,7 +47,7 @@ jobs:
           token: ${{ steps.generate_token.outputs.token }}
 
       - name: Install Node
-        uses: actions/setup-node@v4.0.3
+        uses: actions/setup-node@v4.0.4
         if: steps.command.outputs.command-name && steps.command.outputs.command-arguments == 'eslint'
         with:
           node-version: ${{ env.NODE_VERSION }}
