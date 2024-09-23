@@ -1,11 +1,11 @@
 import path from "node:path";
 
 import js from "@eslint/js";
-import eslintPluginUnicorn from "eslint-plugin-unicorn";
+import eslintPluginJest from "eslint-plugin-jest";
 import eslintPluginSortDestructureKeys from "eslint-plugin-sort-destructure-keys";
+import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import globals from "globals";
 import tsEslint from "typescript-eslint";
-import eslintPluginJest from "eslint-plugin-jest";
 
 export default tsEslint.config(
   js.configs.recommended,
