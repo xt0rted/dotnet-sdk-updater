@@ -16,7 +16,7 @@
     "readme": "actions-toolkit update-readme --include-example",
     "prerelease": "npm run clean && npm run lint && npm test && npm run build",
     "release": "npm run package && git add -f dist/",
-    "postrelease": "node --loader ts-node/esm ./scripts/prepare-release.ts && git add action.yml",
+    "postrelease": "node --experimental-strip-types --no-warnings=ExperimentalWarning ./scripts/prepare-release.ts",
     "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings=ExperimentalWarning\" jest --coverage"
   },
   "repository": {
@@ -60,7 +60,6 @@
     "jiti": "^1.21.6",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.2.5",
-    "ts-node": "^10.9.2",
     "tslib": "^2.7.0",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.6.0"
