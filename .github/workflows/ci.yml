@@ -18,6 +18,34 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - 20
+          - 22
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4.1.7
+
+      - name: Install Node
+        uses: actions/setup-node@v4.0.3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - run: npm test
+
+      - run: npm run package
+
+  lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
       matrix:
         node:
           - 20
@@ -35,9 +63,3 @@ jobs:
       - run: npm ci
 
       - run: npm run lint
-
-      - run: npm run build
-
-      - run: npm test
-
-      - run: npm run package

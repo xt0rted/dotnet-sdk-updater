@@ -9,7 +9,7 @@ const globalFetch = global.fetch;
 export function mockHttpRequests() {
   global.fetch = jest
     .fn<typeof global.fetch>()
-    .mockImplementation((input: RequestInfo | URL, _init?: RequestInit | undefined) => {
+    .mockImplementation((input: RequestInfo | URL, _init?: RequestInit) => {
       let payloadFile: string;
 
       switch (input) {

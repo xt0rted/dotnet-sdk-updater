@@ -1,4 +1,9 @@
 {
+  "eslint.options": {
+    "flags": [
+      "unstable_ts_config",
+    ],
+  },
   // This makes sure we use the system version of node, not the vs code version
   "eslint.runtime": "node",
   "jest.jestCommandLine": "node --experimental-vm-modules node_modules/jest/bin/jest.js",

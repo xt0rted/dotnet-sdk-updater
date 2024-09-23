@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc --project ./tsconfig.build.json",
     "clean": "rimraf coverage dist lib",
-    "eslint": "eslint . --ext .js,.cjs,.ts",
+    "eslint": "eslint --flag unstable_ts_config",
     "eslint:fix": "npm run eslint -- --fix",
     "lint": "tsc --noEmit && npm run eslint",
     "local": "node --env-file=.env ./node_modules/@vercel/ncc/dist/ncc/cli.js run ./src/main.ts",
@@ -41,27 +41,28 @@
     "xregexp": "^5.1.1"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.6",
+    "@eslint/core": "^0.6.0",
+    "@eslint/js": "^9.11.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.13",
     "@types/node": "^22.5.5",
     "@types/semver": "^7.5.8",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
     "@vercel/ncc": "^0.38.1",
     "@xt0rted/actions-toolkit": "^1.0.0",
     "cross-env": "^7.0.3",
-    "eslint": "^8.57.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest": "^27.9.0",
-    "eslint-plugin-sort-destructure-keys": "^1.5.0",
-    "eslint-plugin-typescript-sort-keys": "^3.2.0",
-    "eslint-plugin-unicorn": "^51.0.1",
+    "eslint": "^9.11.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "eslint-plugin-sort-destructure-keys": "^2.0.0",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "globals": "^15.9.0",
     "jest": "^29.7.0",
     "jest-circus": "^29.6.1",
+    "jiti": "^1.21.6",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "tslib": "^2.7.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.6.0"
   }
 }
