@@ -22,47 +22,47 @@ inputs:
 outputs:
   channel:
     description: "The major and minor version of the sdk."
-    _example: "6.0"
+#    _example: "6.0"
 
   cve-list:
     description: "A json array of any CVEs included in the release."
-    _example: "[{\"id\": \"CVE-2022-21986\", \"url\": \"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21986\"}]"
+#    _example: "[{\"id\": \"CVE-2022-21986\", \"url\": \"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21986\"}]"
 
   dry-run:
     description: "Same value as the dry-run input."
-    _example: "false"
+#    _example: "false"
 
   release-date:
     description: "The date of the release."
-    _example: "2022-02-08"
+#    _example: "2022-02-08"
 
   release-notes:
     description: "A URL to the release notes for the release."
-    _example: "https://github.com/dotnet/core/blob/main/release-notes/6.0/6.0.2/6.0.2.md"
+#    _example: "https://github.com/dotnet/core/blob/main/release-notes/6.0/6.0.2/6.0.2.md"
 
   release-version:
     description: "The version of the runtime for the release."
-    _example: "6.0.2"
+#    _example: "6.0.2"
 
   security-release:
     description: "If this release contains security fixes."
-    _example: "true"
+#    _example: "true"
 
   updated:
     description: "If the file was updated with a new version."
-    _example: "true"
+#    _example: "true"
 
   updated-version-from:
     description: "The starting version in the global.json."
-    _example: "6.0.101"
+#    _example: "6.0.101"
 
   updated-version-to:
     description: "The new version in the global.json."
-    _example: "6.0.102"
+#    _example: "6.0.102"
 
   update-type:
     description: "The difference between the from and to version (major, premajor, minor, preminor, patch, prepatch, or prerelease)."
-    _example: "patch"
+#    _example: "patch"
 
 runs:
   using: "node20"
