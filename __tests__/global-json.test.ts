@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 
 import { jest } from "@jest/globals";
 
-import { mockWithLogging } from "./utils";
+import { mockWithLogging } from "./utilities";
 
 jest.unstable_mockModule("node:fs/promises", () => ({
   __esModule: true,
