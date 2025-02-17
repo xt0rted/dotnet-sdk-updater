@@ -2,7 +2,7 @@ import { findLatestSdkVersion } from "../src/dotnet";
 import {
   mockHttpRequests,
   resetMocks,
-} from "./utils";
+} from "./utilities";
 
 describe("dotnet", () => {
   beforeEach(() => {
