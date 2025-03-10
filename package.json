@@ -50,7 +50,7 @@
     "@vercel/ncc": "^0.38.3",
     "@xt0rted/actions-toolkit": "^1.0.0",
     "cross-env": "^7.0.3",
-    "eslint": "^9.21.0",
+    "eslint": "^9.22.0",
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-sort-destructure-keys": "^2.0.0",
     "eslint-plugin-unicorn": "^57.0.0",
