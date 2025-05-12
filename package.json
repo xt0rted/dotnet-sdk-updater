@@ -38,7 +38,7 @@
     "@actions/core": "^1.11.1",
     "json5": "^2.2.3",
     "semver": "^7.7.1",
-    "xregexp": "^5.1.1"
+    "xregexp": "^5.1.2"
   },
   "devDependencies": {
     "@eslint/core": "^0.14.0",
