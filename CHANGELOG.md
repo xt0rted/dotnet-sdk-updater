@@ -4,6 +4,7 @@
 
 - Bumped `@actions/core` from 1.10.1 to 1.11.1
 - Bumped `semver` from 7.6.3 to 7.7.1
+- Bumped `xregexp` from 5.1.1 to 5.1.2
 
 ## [2.0.0](https://github.com/xt0rted/dotnet-sdk-updater/compare/v1.2.0...v2.0.0) - 2024-09-23
 
