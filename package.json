@@ -16,7 +16,7 @@
     "readme": "actions-toolkit update-readme --include-example",
     "prerelease": "npm run clean && npm run lint && npm test && npm run build",
     "release": "npm run package && git add -f dist/ && git add -f action.yml",
-    "postrelease": "node --experimental-strip-types --no-warnings=ExperimentalWarning ./scripts/prepare-release.ts",
+    "postrelease": "node ./scripts/prepare-release.ts",
     "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings=ExperimentalWarning\" jest --coverage"
   },
   "repository": {
