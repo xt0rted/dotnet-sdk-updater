@@ -23,6 +23,7 @@ jobs:
         node:
           - 20
           - 22
+          - 24
 
     steps:
       - name: Check out repo
@@ -50,6 +51,7 @@ jobs:
         node:
           - 20
           - 22
+          - 24
 
     steps:
       - name: Check out repo
