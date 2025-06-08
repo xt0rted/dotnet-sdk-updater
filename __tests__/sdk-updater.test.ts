@@ -4,7 +4,7 @@ import {
   mockHttpRequests,
   mockWithLogging,
   resetMocks,
-} from "./utils";
+} from "./utilities";
 
 jest.unstable_mockModule("node:fs/promises", () => ({
   __esModule: true,

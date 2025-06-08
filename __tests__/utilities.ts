@@ -4,11 +4,11 @@ import { fileURLToPath } from "node:url";
 import { jest } from "@jest/globals";
 
 const enableLogging = false;
-const globalFetch = global.fetch;
+const globalFetch = globalThis.fetch;
 
 export function mockHttpRequests() {
-  global.fetch = jest
-    .fn<typeof global.fetch>()
+  globalThis.fetch = jest
+    .fn<typeof globalThis.fetch>()
     .mockImplementation((input: RequestInfo | URL, _init?: RequestInit) => {
       let payloadFile: string;
 
@@ -39,7 +39,7 @@ export function mockHttpRequests() {
 }
 
 export function resetMocks() {
-  global.fetch = globalFetch;
+  globalThis.fetch = globalFetch;
 }
 
 async function loadPayload(name: string): Promise<unknown> {
