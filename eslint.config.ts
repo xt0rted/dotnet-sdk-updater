@@ -9,7 +9,7 @@ import tsEslint from "typescript-eslint";
 
 export default tsEslint.config(
   js.configs.recommended,
-  eslintPluginUnicorn.configs["flat/recommended"],
+  eslintPluginUnicorn.configs.recommended,
   {
     ignores: [
       "coverage/",
