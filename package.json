@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc --project ./tsconfig.build.json",
     "clean": "rimraf coverage dist lib",
-    "eslint": "eslint --flag unstable_ts_config",
+    "eslint": "eslint",
     "eslint:fix": "npm run eslint -- --fix",
     "lint": "tsc --noEmit && npm run eslint",
     "local": "node --env-file=.env ./node_modules/@vercel/ncc/dist/ncc/cli.js run ./src/main.ts",
