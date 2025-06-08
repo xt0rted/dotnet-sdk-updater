@@ -1,3 +1,3 @@
-import { run } from "./sdk-updater";
+import { run } from "./sdk-updater.js";
 
 await run();

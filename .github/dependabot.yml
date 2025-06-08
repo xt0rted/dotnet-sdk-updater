@@ -24,18 +24,16 @@ updates:
           - "@typescript-eslint/*"
           - "eslint"
           - "eslint-*"
-      jest:
-        patterns:
-          - "@types/jest"
-          - "jest"
-          - "jest-*"
-          - "ts-jest"
+          - "typescript-eslint"
       semver:
         patterns:
           - "@types/semver"
           - "semver"
       typescript:
         patterns:
-          - "ts-node"
           - "tslib"
           - "typescript"
+      vitest:
+        patterns:
+          - "@vitest/*"
+          - "vitest"

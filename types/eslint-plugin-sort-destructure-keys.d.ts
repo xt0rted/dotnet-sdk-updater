@@ -3,5 +3,5 @@ declare module "eslint-plugin-sort-destructure-keys" {
 
   const eslintPluginSortDestructureKeys: ESLint.Plugin;
 
-  export = eslintPluginSortDestructureKeys;
+  export default eslintPluginSortDestructureKeys;
 }

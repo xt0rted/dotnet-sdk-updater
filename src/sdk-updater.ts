@@ -9,12 +9,12 @@ import {
 
 import semver from "semver";
 
-import { findLatestSdkVersion } from "./dotnet";
+import { findLatestSdkVersion } from "./dotnet.js";
 import {
   loadSdkVersion,
   mapConfigFile,
   updateSdkVersion,
-} from "./global-json";
+} from "./global-json.js";
 
 export async function run(): Promise<void> {
   try {

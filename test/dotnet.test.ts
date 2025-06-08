@@ -1,18 +1,12 @@
-import { findLatestSdkVersion } from "../src/dotnet";
 import {
-  mockHttpRequests,
-  resetMocks,
-} from "./utilities";
+  describe,
+  expect,
+  it,
+} from "vitest";
+
+import { findLatestSdkVersion } from "../src/dotnet.js";
 
 describe("dotnet", () => {
-  beforeEach(() => {
-    mockHttpRequests();
-  });
-
-  afterEach(() => {
-    resetMocks();
-  });
-
   it("finds the latest version for 2.2", async () => {
     await expect(findLatestSdkVersion("2.2")).resolves.toStrictEqual({
       channel: "2.2",

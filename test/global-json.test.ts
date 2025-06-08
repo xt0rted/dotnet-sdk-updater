@@ -1,20 +1,19 @@
+import * as fs from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
-import { jest } from "@jest/globals";
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
 
-import { mockWithLogging } from "./utilities";
-
-jest.unstable_mockModule("node:fs/promises", () => ({
-  __esModule: true,
-  ...jest.requireActual<object>("node:fs/promises"),
-  writeFile: jest.fn(),
-}));
-
-jest.unstable_mockModule("@actions/core", () => ({
-  __esModule: true,
-  ...jest.requireActual<object>("@actions/core"),
-  debug: mockWithLogging("debug"),
-}));
+import {
+  loadSdkVersion,
+  mapConfigFile,
+  updateSdkVersion,
+} from "../src/global-json.js";
 
 describe("global-json", () => {
   let configFile: string;
@@ -24,17 +23,13 @@ describe("global-json", () => {
   });
 
   describe("mapConfigFile", () => {
-    it("returns the correct path", async () => {
-      const { mapConfigFile } = await import("../src/global-json");
-
-      expect(mapConfigFile("./__tests__/configs")).toBe(configFile);
+    it("returns the correct path", () => {
+      expect(mapConfigFile("./test/configs")).toBe(configFile);
     });
   });
 
   describe("loadSdkVersion", () => {
     it("returns the correct version", async () => {
-      const { loadSdkVersion } = await import("../src/global-json");
-
       await expect(loadSdkVersion(configFile)).resolves.toBe("6.0.1");
     });
   });
@@ -62,12 +57,11 @@ describe("global-json", () => {
 }
 `;
 
-      const { writeFile } = await import("node:fs/promises");
-      const { updateSdkVersion } = await import("../src/global-json");
+      const writeFileSpy = vi.spyOn(fs, "writeFile");
 
       await updateSdkVersion(configFile, "6.0.1", "6.0.102", false);
 
-      expect(writeFile).toHaveBeenCalledWith(
+      expect(writeFileSpy).toHaveBeenCalledWith(
         configFile,
         expectedFileResult,
         expect.objectContaining({ encoding: "utf8" }),
@@ -75,12 +69,11 @@ describe("global-json", () => {
     });
 
     it("doesn't update the version when a dry run", async () => {
-      const { writeFile } = await import("node:fs/promises");
-      const { updateSdkVersion } = await import("../src/global-json");
+      const writeFileSpy = vi.spyOn(fs, "writeFile");
 
       await updateSdkVersion(configFile, "6.0.1", "6.0.102", true);
 
-      expect(writeFile).not.toHaveBeenCalled();
+      expect(writeFileSpy).not.toHaveBeenCalled();
     });
   });
 });
