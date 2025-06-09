@@ -1,7 +1,7 @@
 import path from "node:path";
 
 import js from "@eslint/js";
-import eslintPluginJest from "eslint-plugin-jest";
+import vitest from "@vitest/eslint-plugin";
 import eslintPluginSortDestructureKeys from "eslint-plugin-sort-destructure-keys";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import globals from "globals";
@@ -251,12 +251,8 @@ export default tsEslint.config(
     },
   },
   {
-    files: ["__tests__/**/*.ts"],
-    ...eslintPluginJest.configs["flat/all"],
-    rules: {
-      "jest/max-expects": "off",
-      "jest/no-hooks": "off",
-    },
+    files: ["test/**/*.ts"],
+    ...vitest.configs.recommended,
   },
   {
     files: ["scripts/**/*.ts"],

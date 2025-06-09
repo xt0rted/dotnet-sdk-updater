@@ -21,7 +21,7 @@ jobs:
           ],
           "npm_and_yarn": [
             "eslint",
-            "jest",
             "typescript",
+            "vitest",
           ],
         }

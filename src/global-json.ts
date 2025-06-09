@@ -10,7 +10,7 @@ import {
 } from "@actions/core";
 import JSON5 from "json5";
 
-import { replaceVersion } from "./regex";
+import { replaceVersion } from "./regex.js";
 
 interface GlobalJson {
   sdk: {
