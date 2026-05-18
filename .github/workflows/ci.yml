@@ -48,7 +48,7 @@ jobs:
 
       - name: Report coverage
         if: always()
-        uses: davelosert/vitest-coverage-report-action@v2.11.2
+        uses: davelosert/vitest-coverage-report-action@v2.12.0
 
   lint:
     runs-on: ubuntu-latest
